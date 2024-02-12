@@ -5,6 +5,7 @@ export const movieContext = createContext()
 export default function MovieContextProvider({ children }) {
     const [data, setData] = useState([])
     const [details, setDetails] = useState(null)
+    const [showDetails, setShowDetails] = useState(false)
     const [sortFlag, setSortFlag] = useState(false)
 
     async function fetchData() {
@@ -19,6 +20,7 @@ export default function MovieContextProvider({ children }) {
 
     function detailHandler(info) {
         setDetails(info)
+        setShowDetails(true)
     }
 
     function romanize(num) {
@@ -33,6 +35,10 @@ export default function MovieContextProvider({ children }) {
         while (i--)
             roman = (key[+digits.pop() + (i * 10)] || "") + roman;
         return Array(+digits.join("") + 1).join("M") + roman;
+    }
+    
+    function showHandler() {
+        setShowDetails(false)
     }
 
     function sortHandler(metric) {
@@ -55,7 +61,7 @@ export default function MovieContextProvider({ children }) {
     }
 
     const values = {
-        data, details, detailHandler, sortHandler, sortFlag, setSortFlag, romanize
+        data, details, detailHandler, sortHandler, sortFlag, setSortFlag, romanize, showDetails, showHandler
     }
 
     return (

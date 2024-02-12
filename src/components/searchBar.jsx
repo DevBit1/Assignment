@@ -5,7 +5,7 @@ import { RxCross1 } from "react-icons/rx";
 
 function SearchBar({ search, setSearch }) {
 
-    const { sortHandler, sortFlag, setSortFlag } = useContext(movieContext)
+    const { sortHandler, sortFlag, setSortFlag, showHandler } = useContext(movieContext)
 
 
     return (
@@ -36,7 +36,10 @@ function SearchBar({ search, setSearch }) {
                     <input
                         type='text'
                         value={search}
-                        onChange={(e) => setSearch(e.target.value)}
+                        onChange={(e) => {
+                            setSearch(e.target.value)
+                            showHandler()
+                            }}
                         className=' w-full py-3 px-2 outline-none'
                         placeholder='Type to search...'
                     />

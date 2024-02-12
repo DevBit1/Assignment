@@ -5,9 +5,6 @@ export default function MovieItem({ data }) {
 
     const { detailHandler, romanize } = useContext(movieContext)
 
-    
-
-
     return (
         <div
             onClick={() => detailHandler(data)}

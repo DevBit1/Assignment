@@ -8,8 +8,6 @@ import SearchBar from './components/searchBar'
 
 function App() {
 
-  // const [data, setData] = useState([])
-
   const { data } = useContext(movieContext)
   const [search, setSearch] = useState("")
 
@@ -39,7 +37,7 @@ function App() {
         </div>
 
         <div className='w-1/2 border-l-2'>
-          <MovieDetails />
+          <MovieDetails  search={search}/>
         </div>
 
       </div>

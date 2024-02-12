@@ -1,14 +1,14 @@
 import { useContext } from "react";
 import { movieContext } from "../Context/movieContext";
 
-function MovieDetails() {
+function MovieDetails({search}) {
 
-    const {details, romanize} = useContext(movieContext)
+    const {details, romanize, showDetails} = useContext(movieContext)
 
     return ( 
         <div className="h-screen p-4">
             {
-                details === null ?
+                !showDetails ?
                 <div className="h-full flex justify-center items-center">
                     No  movies selected
                 </div> :
